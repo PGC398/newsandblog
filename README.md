@@ -1,19 +1,19 @@
-ĞÂÎÅ²©¿ÍÀàÅÀ³æ
+æ–°é—»åšå®¢ç±»çˆ¬è™«
 ===
-ĞÂÎÅ²©¿ÍÀàscrapyÅÀ³æ,Ìá¹©²Ù×÷½çÃæÊµÏÖÓÃ»§Ö¸¶¨ÍøÖ·ĞÂÎÅÄÚÈİÅÀ³æ²¢ÏÂÔØÈë¿â¡£
-ÒÀÀµ
+æ–°é—»åšå®¢ç±»scrapyçˆ¬è™«,æä¾›æ“ä½œç•Œé¢å®ç°ç”¨æˆ·æŒ‡å®šç½‘å€æ–°é—»å†…å®¹çˆ¬è™«å¹¶ä¸‹è½½å…¥åº“ã€‚
+ä¾èµ–
 ===
 	scrapy
 	mongodb
 	pyqt5
-Ê¹ÓÃ
+ä½¿ç”¨
 ===
 	$ git clone ssh://git@42.123.127.93:10022/bujue/nab.git
 	$ cd nab
 	$ scrapy crawl jd
-MongoDBÊı¾İ¿âÅäÖÃ
+MongoDBæ•°æ®åº“é…ç½®
 ===
-ÔÚnab/nab/settings.pyÖĞ
+åœ¨nab/nab/settings.pyä¸­
 ```python
 
 # -*- coding: utf-8 -*-
@@ -64,7 +64,7 @@ ROBOTSTXT_OBEY = False
 
 
 DOWNLOADER_MIDDLEWARES = {
-    'nab.middlewares.RandomUserAgent': 1, #Ëæ»úuser agent
+    'nab.middlewares.RandomUserAgent': 1, #éšæœºuser agent
 }
 
 
@@ -72,35 +72,35 @@ ITEM_PIPELINES = {
     'nab.pipelines.NabPipeline': 300,
 }
 
-#´Ë´¦ÅäÖÃMongodbÊı¾İ¿â£¬ÓÃÓÚ´æ´¢×îÖÕÅÀÈ¡ÏÂÀ´µÄÊı¾İ
-MONGODB_SERVER = "localhost" #´Ë´¦ÅäÖÃredis,·şÎñÆ÷Ê¹ÓÃ127.0.0.1/localhost ¼´¿É,ÅäÖÃ·Ö²¼Ê½Ê±£¬ĞèÒª´Ó»úÔÚ´Ë´¦ÌîÖ÷»úµÄipµØÖ·,¼´¼¯ÖĞ´æ´¢Êı¾İÓÚ·şÎñÆ÷ÉÏ
-MONGODB_PORT = 27017   #¶Ë¿ÚºÅ
-MONGODB_DB = "pipeline_db"  #Êı¾İ¿âÃû
-MONGODB_COLLECTION = "newsandblog"    #±íÃû
+#æ­¤å¤„é…ç½®Mongodbæ•°æ®åº“ï¼Œç”¨äºå­˜å‚¨æœ€ç»ˆçˆ¬å–ä¸‹æ¥çš„æ•°æ®
+MONGODB_SERVER = "localhost" #æ­¤å¤„é…ç½®redis,æœåŠ¡å™¨ä½¿ç”¨127.0.0.1/localhost å³å¯,é…ç½®åˆ†å¸ƒå¼æ—¶ï¼Œéœ€è¦ä»æœºåœ¨æ­¤å¤„å¡«ä¸»æœºçš„ipåœ°å€,å³é›†ä¸­å­˜å‚¨æ•°æ®äºæœåŠ¡å™¨ä¸Š
+MONGODB_PORT = 27017   #ç«¯å£å·
+MONGODB_DB = "pipeline_db"  #æ•°æ®åº“å
+MONGODB_COLLECTION = "newsandblog"    #è¡¨å
 
 
 ```
 
-×¢:±¾´ÎÏîÄ¿Ã»ÓĞÊ¹ÓÃ´úÀíip,ÈôÒªÊ¹ÓÃ,Ö»ĞèĞŞ¸Änab/nab/settings.pyÖĞ
+æ³¨:æœ¬æ¬¡é¡¹ç›®æ²¡æœ‰ä½¿ç”¨ä»£ç†ip,è‹¥è¦ä½¿ç”¨,åªéœ€ä¿®æ”¹nab/nab/settings.pyä¸­
 ```python
 DOWNLOADER_MIDDLEWARES = {
 #    'cnblogs.middlewares.MyCustomDownloaderMiddleware': 543,
-    'nab.middlewares.RandomUserAgent': 1, #Ëæ»úuser agent
-    #'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 110, #´úÀíĞèÒªÓÃµ½
-    #'nab.middlewares.ProxyMiddleware': 100, #´úÀíĞèÒªÓÃµ½
+    'nab.middlewares.RandomUserAgent': 1, #éšæœºuser agent
+    #'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 110, #ä»£ç†éœ€è¦ç”¨åˆ°
+    #'nab.middlewares.ProxyMiddleware': 100, #ä»£ç†éœ€è¦ç”¨åˆ°
 }
 ```
-ĞŞ¸ÄÎª
+ä¿®æ”¹ä¸º
 ```python
 DOWNLOADER_MIDDLEWARES = {
 #    'cnblogs.middlewares.MyCustomDownloaderMiddleware': 543,
-    'nab.middlewares.RandomUserAgent': 1, #Ëæ»úuser agent
-    'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 110, #´úÀíĞèÒªÓÃµ½
-    'nab.middlewares.ProxyMiddleware': 100, #´úÀíĞèÒªÓÃµ½
+    'nab.middlewares.RandomUserAgent': 1, #éšæœºuser agent
+    'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 110, #ä»£ç†éœ€è¦ç”¨åˆ°
+    'nab.middlewares.ProxyMiddleware': 100, #ä»£ç†éœ€è¦ç”¨åˆ°
 }
 ```
-²¢ÔÚnab/nab/settings.pyÖĞ
-#´úÀíip
+å¹¶åœ¨nab/nab/settings.pyä¸­
+#ä»£ç†ip
 ```python
 PROXIES = [
 	
@@ -108,4 +108,4 @@ PROXIES = [
 	
 ]
 ```
-ÖĞ¼ÓÈëÓĞĞ§´úÀíip¼´¿É
+ä¸­åŠ å…¥æœ‰æ•ˆä»£ç†ipå³å¯
